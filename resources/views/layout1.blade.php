@@ -147,6 +147,7 @@
 
     <div class="info1">
         @yield('content')</div>
+        @yield('paginator')
 
 
 </main><!-- /.container -->

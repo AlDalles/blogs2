@@ -10,8 +10,9 @@ use Illuminate\Http\Response;
 class PostController{
 
     public function index(){
-        $posts = \Hillel\Model\Post::all();
-        return view('pages/post/list',compact('posts'));
+        $pages = \Hillel\Model\Post::paginate(3);
+        $link_main="/post/list";
+        return view('pages/post/list',compact('pages','link_main'));
     }
 
     public function posts_tag($id){

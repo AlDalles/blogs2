@@ -8,14 +8,14 @@
 
 
 
-    <h1 class = "info, info1">Posts</h1>
+    <h1 class = "info, info1">pages</h1>
     @if(isset($_SESSION['message']))
         <div class="alert alert-{{$_SESSION['message']['status']}}" role="alert">
             {{$_SESSION['message']['message']}}
         </div>
         @unset($_SESSION['message'])
         @endif
-    @foreach($posts as $post)
+    @foreach($pages as $post)
 
         <div class="text-white bg-dark info">
             <h1>{{ $post->title }}</h1><a href="/post/{{$post->id}}/edit"  type="submit" >Редактировать</a>
@@ -34,5 +34,7 @@
         <p class = "info">{{$post->body}}</p>
         </br>
     @endforeach
+
+    @include('paginator')
 
 @endsection

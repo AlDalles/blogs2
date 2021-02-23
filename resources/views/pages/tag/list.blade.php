@@ -10,7 +10,7 @@
         </div>
         @unset($_SESSION['message'])
     @endif
-    @forelse($tags as $tag)
+    @forelse($pages as $tag)
         @if ($loop->first)
             <table  class="table table-striped">
                 <thead>
@@ -38,8 +38,6 @@
         <p>no tags</p>
     @endforelse
 
-    @push('scripts')
-        <script src="/example.js"></script>
-    @endpush
+    @include('paginator')
 
 @endsection

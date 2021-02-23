@@ -11,7 +11,7 @@
         </div>
         @unset($_SESSION['message'])
     @endif
-    @forelse($categories as $category)
+    @forelse($pages as $category)
         @if ($loop->first)
           <table  class="table table-striped">
               <thead>
@@ -38,8 +38,5 @@
     @empty
         <p>no categories</p>
     @endforelse
-
-    @push('scripts')
-        <script src="/example.js"></script>
-    @endpush
+    @include('paginator')
 @endsection

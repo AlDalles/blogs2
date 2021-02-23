@@ -8,9 +8,9 @@ use Illuminate\Http\Response;
 class CategoryController
 {
     public function index(){
-        $categories = Category::all();
-
-        return view('pages/category/list',compact('categories'));
+        $pages = Category::paginate(3);
+        $link_main="/category/list";
+        return view('pages/category/list',compact('pages','link_main'));
 
     }
 

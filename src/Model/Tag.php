@@ -5,9 +5,21 @@ namespace Hillel\Model;
 
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tag extends Model
 {
+    use SoftDeletes;
+
+    /**
+     * Атрибуты, которые должны быть преобразованы в даты.
+     *
+     * @var array
+     */
+    protected $dates = ['deleted_at'];
+
+
+
     public function delete()
     {
         $this->posts()->detach();

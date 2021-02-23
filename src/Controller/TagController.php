@@ -8,9 +8,9 @@ use Illuminate\Http\Response;
 class TagController
 {
     public function index(){
-        $tags = Tag::all();
-
-        return view('pages/tag/list',compact('tags'));
+        $pages = \Hillel\Model\Tag::paginate(3);
+        $link_main="/tag/list";
+        return view('pages/tag/list',compact('pages','link_main'));
 
     }
 

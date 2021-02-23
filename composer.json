@@ -13,7 +13,8 @@
     "twbs/bootstrap":"5.0.0-beta1",
     "laravelcollective/html": "^6.2",
     "illuminate/session": "v7.30.4",
-    "illuminate/validation": "^7"
+    "illuminate/validation": "^7",
+    "illuminate/pagination": "^7"
   }
 
 }
