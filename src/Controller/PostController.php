@@ -16,15 +16,16 @@ class PostController{
     }
 
     public function posts_tag($id){
-           $posts=Tag::find($id)->posts;
+        $link_main="/post/list";
+          $pages=Post::paginate(3);
 
-
-     return view('pages/post/list',compact('posts'));
+     return view('pages/post/list',compact('pages',"link_main"));
     }
     public function posts_category($id){
-        $posts=Category::find($id)->posts;
+        $pages=Post::where("category_id",$id)->paginate(3);
+        $link_main="/post/{$id}/list/cat";
 
-        return view('pages/post/list',compact('posts'));
+        return view('pages/post/list',compact('pages',"link_main"));
     }
 
     public function create(){

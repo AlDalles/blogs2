@@ -8,7 +8,6 @@
     @if($pages->currentPage()===$pages->lastPage()&& $pages->onFirstPage())
         <a href="{{$link_main}}{{$pages->url(1)}}">1</a>
 
-
     @else
         @if($pages->lastPage()-1==1)
 
@@ -21,11 +20,8 @@
                 @endif
 
             @endforeach
-        
 
         @else
-
-
 
                     @if($pages->currentPage()>3)  {{--дальше 3 страницы показываем ссылку на 1--}}
                     <a href="{{$link_main}}{{$pages->url(1)}}">1...</a>
@@ -63,10 +59,6 @@
 
                         @endforeach
                     @endif
-
-
-
-
 
         @endif
     @endif
