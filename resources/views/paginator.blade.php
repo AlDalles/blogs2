@@ -66,7 +66,7 @@
         @endif
     @endif
         @if($pages->currentPage()!==$pages->lastPage())
-            @if($pages->currentPage()!=$pages->lastPage()-1)
+            @if($pages->currentPage()!=$pages->lastPage()-1 && $pages->currentPage()!=1)
             <a href="{{$link_main}}{{$pages->url($pages->lastPage())}}">{{$pages->lastPage()}}</a>
             @endif
             <a href="{{$link_main}}{{$pages->nextPageUrl()}}">Next</a>
