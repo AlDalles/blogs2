@@ -1,7 +1,7 @@
 @section ('paginator')
 
     @if($pages->currentPage()!==1)   {{--больше одной страницы--}}
-    <a href="{{$link_main}}{{$pages->previousPageUrl()}}">Prev</a>
+    <a href="{{$link_main}}{{$pages->previousPageUrl()}}">@php echo"<<" @endphp Prev...</a>
     @endif
 
     {{--особый случай 1 - только одна страница--}}
@@ -11,26 +11,31 @@
 
     @else
         @if($pages->lastPage()-1==1)
+
+
             @foreach($pages->getUrlRange(1,  2) as $num=>$link)
                 @if($num==$pages->currentPage())
-                    <a href="{{$link_main}}{{$link}}"><h5>{{$num}}</h5></a>
+                    <a href="{{$link_main}}{{$link}}"><b>{{$num}}</b></a>
                 @else
                     <a href="{{$link_main}}{{$link}}">{{$num}}</a>
                 @endif
+
             @endforeach
+        
+
         @else
 
 
 
                     @if($pages->currentPage()>3)  {{--дальше 3 страницы показываем ссылку на 1--}}
-                    <a href="{{$link_main}}{{$pages->url(1)}}">1</a>
+                    <a href="{{$link_main}}{{$pages->url(1)}}">1...</a>
                     @endif
 
 
                     @if($pages->currentPage()!=1 && $pages->currentPage()!=$pages->lastPage()  )  {{--текущая страница не первая и не последняя--}}
                     @foreach($pages->getUrlRange($pages->currentPage()-1, $pages->currentPage() + 1) as $num=>$link)
                         @if($num==$pages->currentPage())
-                            <a href="{{$link_main}}{{$link}}"><h5>{{$num}}</h5></a>
+                            <a href="{{$link_main}}{{$link}}"><b>{{$num}}</b></a>
                         @else
                             <a href="{{$link_main}}{{$link}}">{{$num}}</a>
                         @endif
@@ -41,7 +46,7 @@
                         @if($pages->currentPage()==1   )  {{--текущая страница первая,выводим с первой по третью--}}
                         @foreach($pages->getUrlRange(1, $pages->currentPage() + 2) as $num=>$link)
                             @if($num==$pages->currentPage())
-                                <a href="{{$link_main}}{{$link}}"><h5>{{$num}}</h5></a>
+                                <a href="{{$link_main}}{{$link}}"><b>{{$num}}</b></a>
                             @else
                                 <a href="{{$link_main}}{{$link}}">{{$num}}</a>
                             @endif
@@ -51,7 +56,7 @@
                         @else  {{--иначе она значит последняя и от нее выводим  --}}
                         @foreach($pages->getUrlRange($pages->lastPage()-2, $pages->lastPage()) as $num=>$link)
                             @if($num==$pages->currentPage())
-                                <a href="{{$link_main}}{{$link}}"><h5>{{$num}}</h5></a>
+                                <a href="{{$link_main}}{{$link}}"><b>{{$num}}</b></a>
                             @else
                                 <a href="{{$link_main}}{{$link}}">{{$num}}</a>
                             @endif
@@ -67,9 +72,9 @@
     @endif
         @if($pages->currentPage()!==$pages->lastPage())
             @if($pages->currentPage()!=$pages->lastPage()-1 && $pages->currentPage()!=1)
-            <a href="{{$link_main}}{{$pages->url($pages->lastPage())}}">{{$pages->lastPage()}}</a>
+            <a href="{{$link_main}}{{$pages->url($pages->lastPage())}}">...{{$pages->lastPage()}}</a>
             @endif
-            <a href="{{$link_main}}{{$pages->nextPageUrl()}}">Next</a>
+            <a href="{{$link_main}}{{$pages->nextPageUrl()}}">...Next>></a>
 
            @endif
     @endif
