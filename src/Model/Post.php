@@ -36,4 +36,9 @@ class Post extends Model
     }
 
 
+    public static function PostsByTag($id)
+    {
+        return Tag::find($id)->posts;
+    }
+
 }

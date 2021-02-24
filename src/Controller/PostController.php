@@ -7,20 +7,23 @@ use Hillel\Model\Post;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 
+
 class PostController{
 
     public function index(){
-        $pages = \Hillel\Model\Post::paginate(3);
+        $pages = Post::paginate(3);
         $link_main="/post/list";
         return view('pages/post/list',compact('pages','link_main'));
     }
 
     public function posts_tag($id){
-        $link_main="/post/list";
-          $pages=Post::paginate(3);
+        $link_main="/post/{$id}/list/tag";
+        $pages = Tag::find($id)->posts()->paginate(3);
 
-     return view('pages/post/list',compact('pages',"link_main"));
+        return view('pages/post/list',compact('pages',"link_main"));
     }
+
+
     public function posts_category($id){
         $pages=Post::where("category_id",$id)->paginate(3);
         $link_main="/post/{$id}/list/cat";
