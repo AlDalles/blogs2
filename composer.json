@@ -14,7 +14,8 @@
     "laravelcollective/html": "^6.2",
     "illuminate/session": "v7.30.4",
     "illuminate/validation": "^7",
-    "illuminate/pagination": "^7"
+    "illuminate/pagination": "^7",
+    "vlucas/phpdotenv": "^v5.3.0"
   }
 
 }

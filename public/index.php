@@ -7,6 +7,7 @@ require_once '../config/eloquent.php';
 require_once '../config/blade.php';
 require_once '../config/router.php';
 require_once '../config/validator.php';
+require_once '../config/dotenv.php';
 
 $response = $router->dispatch($request);
 echo $response->getContent();
